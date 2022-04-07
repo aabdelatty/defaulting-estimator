@@ -1,0 +1,93 @@
+# Package Overview
+package_name: gradient_boosting_model
+version: 0.1.0
+
+# Data Files
+training_data_file: training_dataset.csv
+test_data_file: testing_dataset.csv
+test_size: 0.2
+random_state: 0
+
+# pipeline info
+pipeline_name: gb_classifier
+pipeline_save_file: gb_classifier_output_v
+
+target: default
+
+features:
+  - account_amount_added_12_24m
+  - account_days_in_rem_12_24m
+  - has_paid
+  - max_paid_inv_0_24m
+  - num_active_div_by_paid_inv_0_12m
+  - num_arch_ok_0_12m
+  - num_arch_ok_12_24m
+  - num_arch_rem_0_12m
+  - num_unpaid_bills
+  - status_last_archived_0_24m
+  - status_2nd_last_archived_0_24m
+  - status_3rd_last_archived_0_24m
+  - status_max_archived_0_6_months
+  - status_max_archived_0_12_months
+  - status_max_archived_0_24_months
+  - sum_paid_inv_0_12m
+  - sum_capital_paid_account_0_12m
+  - sum_capital_paid_account_12_24m
+  - num_active_inv
+  - num_active_div_by_paid_inv_0_12m
+  - account_worst_status_0_3m
+  - account_worst_status_12_24m
+  - account_worst_status_3_6m
+  - account_worst_status_6_12m
+  - merchant_category
+
+
+drop_features:
+  - uuid
+  - age
+  - name_in_email
+  - merchant_group
+  - time_hours
+  - avg_payment_span_0_12m
+  - avg_payment_span_0_3m
+  - account_incoming_debt_vs_paid_0_24m
+  - num_arch_written_off_0_12m
+  - num_arch_written_off_12_24m
+  - recovery_debt
+  - account_days_in_dc_12_24m
+  - account_days_in_term_12_24m
+  - num_arch_dc_0_12m
+  - num_arch_dc_12_24m
+  - num_active_inv
+  - max_paid_inv_0_12m
+  - sum_capital_paid_account_0_12m
+  - sum_capital_paid_account_12_24m
+  - account_worst_status_0_3m
+  - account_worst_status_12_24m
+  - account_worst_status_3_6m
+  - account_worst_status_6_12m
+  - worst_status_active_inv
+  - account_status
+  - status_max_active_0_24
+
+numerical_vars:
+  - num_arch_ok_0_12m
+  - account_amount_added_12_24m
+  - account_days_in_rem_12_24m
+  - max_paid_inv_0_24m
+  - num_active_div_by_paid_inv_0_12m
+  - num_arch_ok_12_24m
+  - num_arch_rem_0_12m
+  - num_unpaid_bills
+  - sum_paid_inv_0_12m
+
+
+categorical_vars:
+  - merchant_category
+
+
+# The number of boosting stages to perform
+n_estimators: 10
+
+# the minimum frequency a label should have to be considered frequent
+scale_pos_weight: 1
